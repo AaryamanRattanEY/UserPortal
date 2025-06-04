@@ -1,0 +1,23 @@
+{
+  "name": "user-profile-management",
+  "version": "1.0.0",
+  "description": "A web application for managing user profiles.",
+  "main": "src/js/app.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step can be added here.'"
+  },
+  "keywords": [
+    "user",
+    "profile",
+    "management",
+    "web",
+    "application"
+  ],
+  "author": "Aaryaman Rattan",
+  "license": "None",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Management</title>
+    <link rel="stylesheet" href="../../src/css/profile.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar"></div>
+        <h1>My Profile</h1>
+    </header>
+    <main>
+        <nav class="tabs">
+            <a href="../personal_profile/personal-profile.html"><button class="tab" id="tab-personal" type="button">Personal Profile</button></a>
+            <button class="tab active" id="tab-security" type="button">Security Questions</button>
+            <a href="../change_password/change-password.html"><button class="tab" id="tab-password" type="button">Change Password</button></a>
+        </nav>
+        <section id="profile-content">
+            <!-- Security Questions Tab Content -->
+            <form id="security-questions-form" class="tab-content active">
+                <div class="form-group">
+                    <label for="question1">Security Question 1</label>
+                    <select id="question1" name="question1">
+                        <option>Select a question</option>
+                        <option>What is your pet's name?</option>
+                        <option>What is your mother's maiden name?</option>
+                        <option>What was your first school?</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="answer1">Security Answer 1</label>
+                    <input type="text" id="answer1" name="answer1">
+                </div>
+                <div class="form-group">
+                    <label for="question2">Security Question 2</label>
+                    <select id="question2" name="question2">
+                        <option>Select a question</option>
+                        <option>What is your favorite color?</option>
+                        <option>What is your favorite food?</option>
+                        <option>What city were you born in?</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="answer2">Security Answer 2</label>
+                    <input type="text" id="answer2" name="answer2">
+                </div>
+                <div class="form-group">
+                    <label for="question3">Security Question 3</label>
+                    <select id="question3" name="question3">
+                        <option>Select a question</option>
+                        <option>What is your favorite movie?</option>
+                        <option>What is your father's middle name?</option>
+                        <option>What was your childhood nickname?</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="answer3">Security Answer 3</label>
+                    <input type="text" id="answer3" name="answer3">
+                </div>
+                <button type="submit" class="update-btn">Update Account</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <span>Accessibility</span>
+            <span>Privacy</span>
+            <span>Legal</span>
+            <span>Copyright &copy; Loblaw Companies Limited</span>
+        </div>
+    </footer>
+    <script src="security-questions.js"></script>
+</body>
+</html>
