@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users - Create User</title>
+    <link rel="stylesheet" href="../../shared/profile-shared.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar"></div>
+        <h1>Manage Users</h1>
+    </header>
+    <main>
+        <nav class="tabs">
+            <button class="tab active" id="tab-create">Create User</button>
+            <a href="../enable_disable_user/enable-disable-user.html"><button class="tab" id="tab-enable" type="button">Enable/Disable User</button></a>
+            <a href="../modify_user/modify-user.html"><button class="tab" id="tab-modify" type="button">Modify User</button></a>
+            <a href="../reset_password/reset-password.html"><button class="tab" id="tab-reset" type="button">Reset User Password</button></a>
+        </nav>
+        <section id="admin-content">
+            <form id="create-user-form" autocomplete="off">
+                <section class="profile-section">
+                    <h3>Name / Nom</h3>
+                    <div class="profile-row">
+                        <div>
+                            <label for="email">Email/Login ID</label>
+                            <input type="text" id="email" name="email" required>
+                        </div>
+                        <div>
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" name="first-name" required>
+                        </div>
+                        <div>
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" required>
+                        </div>
+                    </div>
+                </section>
+                <section class="profile-section">
+                    <h3>Organization / Enterprise</h3>
+                    <div class="profile-row">
+                        <div>
+                            <label for="vendor-number">Vendor Number</label>
+                            <input type="text" id="vendor-number" name="vendor-number">
+                        </div>
+                        <div>
+                            <label for="company-name">Company Name</label>
+                            <input type="text" id="company-name" name="company-name">
+                        </div>
+                        <div>
+                            <label for="company-address">Company Address</label>
+                            <input type="text" id="company-address" name="company-address">
+                        </div>
+                    </div>
+                    <div class="profile-row">
+                        <div>
+                            <label for="address-line2">Address Line 2</label>
+                            <input type="text" id="address-line2" name="address-line2">
+                        </div>
+                        <div>
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city">
+                        </div>
+                        <div>
+                            <label for="province">Province/State</label>
+                            <input type="text" id="province" name="province">
+                        </div>
+                    </div>
+                    <div class="profile-row">
+                        <div>
+                            <label for="postal-code">Postal/Zip Code</label>
+                            <input type="text" id="postal-code" name="postal-code">
+                        </div>
+                        <div>
+                            <label for="country">Country</label>
+                            <input type="text" id="country" name="country">
+                        </div>
+                        <div>
+                            <label for="company-phone">Company Phone</label>
+                            <input type="text" id="company-phone" name="company-phone">
+                        </div>
+                    </div>
+                    <div class="profile-row">
+                        <div>
+                            <label for="additional-vendor-numbers">Additional Vendor Numbers</label>
+                            <input type="text" id="additional-vendor-numbers" name="additional-vendor-numbers">
+                        </div>
+                    </div>
+                </section>
+                <section class="profile-section">
+                    <h3>User Information / Informations de l'utilisateur</h3>
+                    <div class="profile-row">
+                        <div>
+                            <label for="alt-phone">Alternate Phone</label>
+                            <input type="text" id="alt-phone" name="alt-phone">
+                        </div>
+                        <div>
+                            <label for="alt-ext">Ext</label>
+                            <input type="text" id="alt-ext" name="alt-ext">
+                        </div>
+                    </div>
+                </section>
+                <section class="profile-section">
+                    <h3>Access / Accès</h3>
+                    <div class="profile-row">
+                        <div>
+                            <label for="status">Status</label>
+                            <select id="status" name="status">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="privilege-level">Privilege Level</label>
+                            <select id="privilege-level" name="privilege-level">
+                                <option value="User">User</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="profile-row">
+                        <div>
+                            <label>Application List</label>
+                            <div id="application-list">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <button type="submit" class="update-btn">SUBMIT</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <span>Accessibility</span>
+            <span>Privacy</span>
+            <span>Legal</span>
+            <span>&copy; Loblaw Companies Limited</span>
+        </div>
+    </footer>
+    <script type="module" src="create-user.js"></script>
+</body>
+</html>

@@ -1,13 +1,14 @@
+import { updateUserPassword } from '../../api/profile-calls.js';
+
 let formDirty = false;
 
-// Mark form as dirty on input
+
 document.querySelectorAll('#change-password-form input').forEach(input => {
     input.addEventListener('input', () => {
         formDirty = true;
     });
 });
 
-// Create alert bar
 function showAlertBar(tabUrl) {
     if (document.getElementById('alert-bar')) return;
     const alertBar = document.createElement('div');
@@ -38,7 +39,7 @@ function showAlertBar(tabUrl) {
     };
 }
 
-// Tab click logic
+
 document.querySelectorAll('.tabs a').forEach(link => {
     link.addEventListener('click', function(e) {
         if (formDirty) {
@@ -48,7 +49,7 @@ document.querySelectorAll('.tabs a').forEach(link => {
     });
 });
 
-// Password validation function
+
 function validatePassword(password) {
     const lengthValid = password.length >= 8 && password.length <= 14;
     const upperValid = /[A-Z]/.test(password);
@@ -58,8 +59,8 @@ function validatePassword(password) {
     return lengthValid && upperValid && lowerValid && numberValid && specialValid;
 }
 
-// Form submit logic
-document.getElementById('change-password-form').addEventListener('submit', function(e) {
+
+document.getElementById('change-password-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const newPassword = document.getElementById('new-password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
@@ -72,10 +73,14 @@ document.getElementById('change-password-form').addEventListener('submit', funct
         alert('Password does not meet the requirements:\n- 8-14 characters\n- At least one uppercase letter\n- At least one lowercase letter\n- At least one number\n- At least one special character (!@#$%^&*)');
         return;
     }
-    // TODO: Add API integration here
-    alert('Password updated (API integration pending)');
-    formDirty = false;
-    if (document.getElementById('alert-bar')) {
-        document.body.removeChild(document.getElementById('alert-bar'));
+    try {
+        await updateUserPassword(newPassword);
+        alert('Password updated successfully!');
+        formDirty = false;
+        if (document.getElementById('alert-bar')) {
+            document.body.removeChild(document.getElementById('alert-bar'));
+        }
+    } catch (err) {
+        alert('Failed to update password: ' + err.message);
     }
 });
