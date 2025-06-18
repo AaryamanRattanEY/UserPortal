@@ -53,3 +53,14 @@ export async function updateUser(userData) {
     await new Promise(res => setTimeout(res, 200));
     return { success: true, message: "User updated (dummy)" };
 }
+
+
+export async function searchUsers(query) {
+    await new Promise(res => setTimeout(res, 100));
+
+    return [
+        { id: '1', name: 'Dummy User', email: 'dummy@dummy.com', vendorNumber: '123456' },
+        { id: '2', name: 'Dummy User2', email: 'dummy2@dummy.com', vendorNumber: '654321' }
+    ].filter(u => u.name.toLowerCase().includes(query.toLowerCase()) || u.email.toLowerCase().includes(query.toLowerCase()));
+}
+

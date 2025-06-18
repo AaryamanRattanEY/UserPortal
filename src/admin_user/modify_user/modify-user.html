@@ -19,7 +19,12 @@
             <a href="../reset_password/reset-password.html"><button class="tab" id="tab-reset" type="button">Reset User Password</button></a>
         </nav>
         <section id="admin-content">
-            <form id="modify-user-form" autocomplete="off">
+            <section class="profile-section">
+                <h3>Search User</h3>
+                <input type="text" id="user-search" placeholder="Type name or email..." autocomplete="off" style="width: 350px;">
+                <div id="user-search-results" style="margin-top: 1rem;"></div>
+            </section>
+            <form id="modify-user-form" autocomplete="off" style="display:none;">
                 <section class="profile-section">
                     <h3>Name / Nom</h3>
                     <div class="profile-row">
@@ -123,7 +128,7 @@
                         <div>
                             <label>Application List</label>
                             <div id="application-list">
-                                <!-- Application checkboxes will be rendered by JS -->
+                                
                             </div>
                         </div>
                     </div>

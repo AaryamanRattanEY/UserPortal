@@ -1,7 +1,40 @@
-import { fetchUserDetails, fetchApplicationList, updateUser } from '../../api/admin-calls.js';
+import { searchUsers, fetchUserDetails, fetchApplicationList, updateUser } from '../../api/admin-calls.js';
 
-document.addEventListener('DOMContentLoaded', async () => {
-    const userData = await fetchUserDetails();
+let selectedUserId = null;
+
+document.getElementById('user-search').addEventListener('input', async function() {
+    const query = this.value.trim();
+    const resultsDiv = document.getElementById('user-search-results');
+    resultsDiv.innerHTML = '';
+    document.getElementById('modify-user-form').style.display = 'none';
+
+    if (query.length < 2) return;
+
+    const users = await searchUsers(query); // [{id, name, email, vendorNumber}]
+    if (!users.length) {
+        resultsDiv.textContent = 'No users found.';
+        return;
+    }
+    resultsDiv.innerHTML = users.map(u =>
+        `<div class="user-result" data-id="${u.id}" style="cursor:pointer;padding:0.3rem 0;">
+            <strong>${u.name}</strong> (${u.email}) - Vendor#: ${u.vendorNumber}
+        </div>`
+    ).join('');
+
+
+    document.querySelectorAll('.user-result').forEach(div => {
+        div.onclick = async function() {
+            selectedUserId = this.getAttribute('data-id');
+            await loadUser(selectedUserId);
+            resultsDiv.innerHTML = '';
+            document.getElementById('user-search').value = '';
+        };
+    });
+});
+
+
+async function loadUser(userId) {
+    const userData = await fetchUserDetails(userId);
     document.getElementById('email').value = userData.email || '';
     document.getElementById('first-name').value = userData.firstName || '';
     document.getElementById('last-name').value = userData.lastName || '';
@@ -28,13 +61,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             <label for="app-${idx}">${app}</label>
         </div>
     `).join('');
-});
 
+    document.getElementById('modify-user-form').style.display = '';
+}
 
 document.getElementById('modify-user-form').addEventListener('submit', async function(e) {
     e.preventDefault();
+    if (!selectedUserId) return;
     const form = e.target;
     const formData = {
+        id: selectedUserId,
         email: form.email.value,
         firstName: form['first-name'].value,
         lastName: form['last-name'].value,
