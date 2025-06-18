@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile Management</title>
-    <link rel="stylesheet" href="./css/homepage.css">
+    <link rel="stylesheet" href="../src/css/styles.css">
 </head>
 <body>
     <header>
-        <h1>User Profile Management</h1>
+        <nav class="top-nav">
+            <div class="menu" tabindex="0">
+                <button class="menu-btn">Menu &#9662;</button>
+                <div class="dropdown">
+                    <a href="../src/normal_user/personal_profile/personal-profile.html">My Profile</a>
+                    <a href="../src/admin_user/create_user/create-user.html">User Admin</a>
+                    <a href="">Profile Info</a>
+                    <a href="">Sign Out</a>
+                </div>
+            </div>
+        </nav>
     </header>
     <main>
         <section id="profile">
@@ -16,7 +26,6 @@
             <div id="profile-info">
 
             </div>
-            <button id="edit-profile">Edit Profile</button>
         </section>
     </main>
     <script src="./js/homepage.js"></script>
